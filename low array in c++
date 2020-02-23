@@ -1,0 +1,54 @@
+#include<iostream>
+#include<vector>
+using namespace std;
+class lowarray{
+private:
+	vector<double>v;
+public:
+	lowarray(int max){
+		v.resize(max);
+	}
+	void setelement(int index, double value){
+		v[index] = value;
+	}
+	double getelement(int index){
+		return v[index];
+	}
+};
+int main(){
+	lowarray arr(100);
+	int nelement = 0;
+	int j;
+	arr.setelement(0, 5);
+	arr.setelement(1, 11);
+	arr.setelement(2, 99);
+	arr.setelement(3, 44);
+	arr.setelement(4, 55);
+	arr.setelement(5, 44);
+	nelement = 10;
+	for (int j = 0; j < nelement; j++){
+		cout << arr.getelement(j) << "  ";
+		cout << endl;
+	}
+	int search = 44;
+	for (j = 0; j < nelement; j++){
+		if (arr.getelement(j) == search)
+			break;
+		if (j == nelement){
+			cout << "element not found" << endl;
+		}
+		else{
+			cout << "element found" << endl;
+		}
+	}
+		int deletee = 44;
+	//	cout << "deleting element" << delete << endl;
+		for (int k = j; k < nelement; k++){
+			arr.setelement(k, arr.getelement(k + 1));
+			nelement--;
+		}
+		for (int j = 0; j < nelement; j++){
+			cout << arr.getelement(j) << endl;
+		}
+		return 0;
+	}
